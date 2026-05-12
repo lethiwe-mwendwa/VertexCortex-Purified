@@ -1,55 +1,39 @@
 // VertexCortex Purified Testing
 
 #include "VertexCortex.h"
-
+#include "Window.h"
 //LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 
-int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
+VertexCortexApp
 {
+	wchar_t ClassName[] = L"MainWindow";
+	wchar_t WindowText[] = L"VertexCortexApplication";
 
-	// Register the window class.
-	const wchar_t CLASS_NAME[] = L"Sample Window Class";
+	Window MainWindow(ClassName,WindowText,hInstance, nCmdShow);
 
-	WNDCLASS wc = { };
-
-	wc.lpfnWndProc = WindowProc;
-	wc.hInstance = hInstance;
-	wc.lpszClassName = CLASS_NAME;
-
-	RegisterClass(&wc);
-
-	// Create the window.
-
-	// HWND meand Handle to a window
-	HWND hwnd = CreateWindowEx(
-		0,                              // Optional window styles.
-		CLASS_NAME,                     // Window class
-		L"Learn to Program Windows",    // Window text
-		WS_OVERLAPPEDWINDOW,            // Window style
-
-		// Size and position
-		CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT,
-
-		NULL,       // Parent window    
-		NULL,       // Menu
-		hInstance,  // Instance handle
-		NULL        // Additional application data
-		);
-
-	if (hwnd == NULL)
+	if (MainWindow.handler == NULL)
 	{
 		return 0;
 	}
 
-	ShowWindow(hwnd, nCmdShow);
-
-	MessageBox(nullptr, L"Hello world!", L"Message Box Title", MB_OK);
+	ShowWindow(MainWindow.handler, nCmdShow);
 
 	// game init code
-
-	// game update code
+	MSG msg = { };
+	while (applicationState) {
+		// 1. Process Windows Messages (Prevents freezing)
+		while (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE)) {
+			if (msg.message == WM_QUIT) applicationState = false;
+			TranslateMessage(&msg);
+			DispatchMessage(&msg);
+		}
+		// 2. Game Update Code
+		// 
+		// 3. Game Render Code
+	}
 
 	// game destroy code
 
 	return 0;
+	
 }
