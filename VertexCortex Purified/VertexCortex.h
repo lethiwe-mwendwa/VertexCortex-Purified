@@ -5,8 +5,11 @@
 
 #include <windows.h>
 
+#define VertexCortexApp INT WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _In_  LPSTR lpCmdLine, _In_  INT nCmdShow)
 
-// Workingh one define VertexCortexApp INT WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR pCmdLine, INT nCmdShow)
+void setup();
 
-#define VertexCortexApp INT WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, INT nCmdShow)
+void update();
+
+void render();
 

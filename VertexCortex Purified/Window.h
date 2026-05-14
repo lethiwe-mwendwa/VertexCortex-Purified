@@ -1,6 +1,6 @@
 #pragma once
 #include "Windows.h"
-
+#include <iostream>
 extern bool applicationState;
 
 LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
