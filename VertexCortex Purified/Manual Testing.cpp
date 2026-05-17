@@ -21,3 +21,9 @@ void render() {
 	OutputDebugString(TEXT("\nRENDER\n"));
 
 }
+
+void destroy() {
+
+	OutputDebugString(TEXT("\nDESTROY\n"));
+
+}

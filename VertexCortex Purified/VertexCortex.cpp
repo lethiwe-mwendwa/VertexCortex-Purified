@@ -16,9 +16,8 @@ VertexCortexApp
 	ShowWindow(MainWindow.handler, nCmdShow);
 
 	// game loop
-
+	MSG msg = { };
 	while (applicationState) {
-		MSG msg = { };
 		// 1. Process Windows Messages (Prevents freezing)
 		while (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE)) {
 			if (msg.message == WM_QUIT) applicationState = false;
@@ -34,6 +33,7 @@ VertexCortexApp
 	}
 
 	// game destroy code
+	destroy();
 
 	return 0;
 

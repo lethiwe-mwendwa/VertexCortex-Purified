@@ -1,0 +1,27 @@
+Vertex Cortex:
+A non-genred 3d engine that lets the user render programmable
+scenes using lighting, primary shaped objects, and any 
+imported OBJs and textures. Program events (eg inputs), and 
+HUD rendering are exposed to the user as well.
+
+Designing a cross-platform game/graphics engine architecture, starting from low-level OS windowing (Win32), and building upward toward a renderer and application framework with a clean abstraction layer and controlled application lifecycle.
+
+User:
+Game/simulation/experience programmer.
+
+Design options:
+Simple wrappers over Win32API and low level functions
+	- Result: A C++ library
+
+Fully abstracted Win32API code, hidden game loop and draw calls.
+User makes use of callback functions like in processing or unity
+	- Result: A C++ game framework
+
+
+Goals:
+Keep abstractions as simple as possible to make VertexCortex lightweight.
+Straightforward approach to creating software/games/simulations.
+
+Future Goals:
+CUDA compatible?? For simple HPC programming
+Make cross platform

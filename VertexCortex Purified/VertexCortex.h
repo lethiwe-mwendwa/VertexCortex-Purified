@@ -13,3 +13,5 @@ void update();
 
 void render();
 
+void destroy();
+
