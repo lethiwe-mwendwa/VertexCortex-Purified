@@ -105,15 +105,19 @@ frameBuffer::~frameBuffer()
     delete[] colourBuffer;
 }
 
-void frameBuffer::clear(uint32_t)
+void frameBuffer::clear(uint32_t colour)
 {
+    for(int i = 0; i <= height * width; i++){
+        colourBuffer[i] = colour;
+    }
 }
 
-void frameBuffer::setPixel(int x, int y, uint32_t)
+void frameBuffer::setPixel(int x, int y, uint32_t colour)
 {
+    colourBuffer[y * width + x] = colour;
 }
 
 const uint32_t* frameBuffer::getColourData()
 {
-    return nullptr;
+    return colourBuffer;
 }
