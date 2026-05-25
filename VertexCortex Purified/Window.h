@@ -34,9 +34,12 @@ public:
 
 	void clear(uint32_t);
 	
-	void setPixel(int x, int y, uint32_t);
+	void setPixel(size_t, size_t, uint32_t);
 
 	const uint32_t* getColourData();
+
+	// For win32 use
+	void present(HDC deviceContext);
 
 private:
 

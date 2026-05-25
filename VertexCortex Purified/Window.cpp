@@ -107,13 +107,16 @@ frameBuffer::~frameBuffer()
 
 void frameBuffer::clear(uint32_t colour)
 {
-    for(int i = 0; i <= height * width; i++){
+    for(int i = 0; i < height * width; i++){
         colourBuffer[i] = colour;
     }
 }
 
-void frameBuffer::setPixel(int x, int y, uint32_t colour)
+void frameBuffer::setPixel(size_t x, size_t y, uint32_t colour)
 {
+    if ((y >= height) || (x >= width)){
+        return;
+    }
     colourBuffer[y * width + x] = colour;
 }
 
