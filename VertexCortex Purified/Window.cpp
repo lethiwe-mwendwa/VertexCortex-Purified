@@ -91,3 +91,29 @@ LRESULT CALLBACK Window::WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM 
     }
     return DefWindowProc(hwnd, uMsg, wParam, lParam);
 }
+
+frameBuffer::frameBuffer(size_t width, size_t height)
+{
+    colourBuffer = new uint32_t[height * width];
+
+    this->width = width;
+    this->height = height;
+}
+
+frameBuffer::~frameBuffer()
+{
+    delete[] colourBuffer;
+}
+
+void frameBuffer::clear(uint32_t)
+{
+}
+
+void frameBuffer::setPixel(int x, int y, uint32_t)
+{
+}
+
+const uint32_t* frameBuffer::getColourData()
+{
+    return nullptr;
+}

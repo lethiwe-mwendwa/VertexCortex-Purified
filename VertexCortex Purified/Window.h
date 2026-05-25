@@ -25,3 +25,25 @@ private:
 };
 
 
+class frameBuffer
+{
+public:
+	frameBuffer(size_t width, size_t height);
+
+	~frameBuffer();
+
+	void clear(uint32_t);
+	
+	void setPixel(int x, int y, uint32_t);
+
+	const uint32_t* getColourData();
+
+private:
+
+	size_t width;
+	size_t height;
+
+	uint32_t* colourBuffer;
+
+
+};
