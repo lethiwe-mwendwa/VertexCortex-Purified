@@ -17,10 +17,9 @@ VertexCortexApp
 
 	// game loop
 	MSG msg = { };
-	while (applicationState) {
+	while (MainWindow.isRunning) {
 		// 1. Process Windows Messages (Prevents freezing)
 		while (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE)) {
-			if (msg.message == WM_QUIT) applicationState = false;
 			TranslateMessage(&msg);
 			DispatchMessage(&msg);
 		}

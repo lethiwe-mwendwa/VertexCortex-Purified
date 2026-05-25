@@ -1,16 +1,13 @@
 #pragma once
 #include "Windows.h"
 #include <iostream>
-extern bool applicationState;
-
-LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 
 class Window
 {
 
 public:
 	Window(const wchar_t* ClassName, const wchar_t* WindowText,HINSTANCE hInstance, int nCmdShow);
-
+	bool isRunning = false;
 	HWND handler;
 
 protected:
@@ -18,10 +15,10 @@ protected:
 	const wchar_t* CLASS_NAME;
 
 private:
-
+	static LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 	int nCmdShow;
 	WNDCLASS WindowClass = { };
-	HINSTANCE* hInstance;
+	HINSTANCE hInstance;
 
 	void registerWindowClass();
 
