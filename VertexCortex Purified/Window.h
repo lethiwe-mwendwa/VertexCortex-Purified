@@ -2,6 +2,23 @@
 #include "Windows.h"
 #include <iostream>
 
+class Clock
+{
+
+public:
+	Clock();
+
+	float dt;
+
+	// Updates dt
+	void tick();
+
+private:
+
+	LARGE_INTEGER lastTime;
+	LARGE_INTEGER counterFrequency;
+
+};
 
 class frameBuffer
 {
@@ -30,8 +47,6 @@ private:
 	// Use BGR storage
 	uint32_t* colourBuffer;
 
-	uint32_t packColor(uint8_t r, uint8_t g, uint8_t b);
-
 };
 
 class Window
@@ -39,9 +54,15 @@ class Window
 
 public:
 	Window(const wchar_t* ClassName, const wchar_t* WindowText,HINSTANCE hInstance, int nCmdShow);
+	~Window();
+	
 	bool isRunning = false;
 	HWND handler;
 	frameBuffer* mainBuffer;
+	Clock timer;
+
+
+	void display();
 
 protected:
 	const wchar_t* WindowText;
@@ -57,3 +78,6 @@ private:
 
 };
 
+uint32_t packColorBGR(uint8_t r, uint8_t g, uint8_t b);
+
+void render(frameBuffer&);

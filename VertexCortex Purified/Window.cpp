@@ -4,6 +4,7 @@ Window::Window(const wchar_t* ClassName, const wchar_t* WindowText, HINSTANCE hI
 {
 
     mainBuffer = nullptr;
+    timer = Clock();
 
 	this->WindowText = WindowText;
 	this->CLASS_NAME = ClassName;
@@ -31,6 +32,18 @@ Window::Window(const wchar_t* ClassName, const wchar_t* WindowText, HINSTANCE hI
 
     isRunning = true;
 
+}
+
+Window::~Window()
+{
+
+}
+
+void Window::display()
+{
+    HDC hdc = GetDC(handler);
+    mainBuffer->present(hdc);
+    ReleaseDC(handler, hdc);
 }
 
 void Window::registerWindowClass()
@@ -82,11 +95,10 @@ LRESULT CALLBACK Window::WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM 
 		    size_t width = LOWORD(lParam);
 		    size_t height = HIWORD(lParam);
 
+            if (width == 0 || height == 0) return 0;
+
 		    delete window->mainBuffer;
 		    window->mainBuffer = new frameBuffer(width, height);
-
-            // Turn the window red!
-		    window->mainBuffer->clear(0x00FF0000);
 
 		    return 0;
 	    }
@@ -117,6 +129,7 @@ frameBuffer::frameBuffer(size_t width, size_t height)
     this->width = width;
     this->height = height;
 
+    // For Win32
     bitmapInfo = {};
     bitmapInfo.bmiHeader.biSize = sizeof(BITMAPINFOHEADER);
     bitmapInfo.bmiHeader.biWidth = width;
@@ -172,7 +185,30 @@ void frameBuffer::present(HDC deviceContext)
 
 }
 
-uint32_t frameBuffer::packColor(uint8_t r, uint8_t g, uint8_t b)
+uint32_t packColorBGR(uint8_t r, uint8_t g, uint8_t b)
 {
-    return (r) | (g << 8) | (b << 16);
+    return (b) | (g << 8) | (r << 16);
 }
+
+Clock::Clock()
+{
+    // updates counterFrequency
+    QueryPerformanceFrequency(&counterFrequency);
+    QueryPerformanceCounter(&lastTime);
+}
+
+void Clock::tick()
+{
+    LARGE_INTEGER currentTime;
+
+    QueryPerformanceCounter(&currentTime);
+
+    dt = (currentTime.QuadPart - lastTime.QuadPart) / counterFrequency.QuadPart;
+
+    lastTime = currentTime;
+}
+
+void render(frameBuffer& frameBuffer) {
+    return;
+};
+

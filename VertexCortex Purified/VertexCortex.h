@@ -9,9 +9,7 @@
 
 void setup();
 
-void update();
-
-void render();
+void update(float deltaTime);
 
 void destroy();
 

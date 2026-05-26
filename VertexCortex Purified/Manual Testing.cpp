@@ -10,16 +10,9 @@ void setup() {
 }
 
 // Code run every frame
-void update() {
+void update(float deltaTime) {
 
 	OutputDebugString(TEXT("\nUPDATE\n"));
-
-}
-
-// Code run every frame as well
-void render() {
-
-	OutputDebugString(TEXT("\nRENDER\n"));
 
 }
 

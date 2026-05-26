@@ -23,12 +23,25 @@ VertexCortexApp
 			TranslateMessage(&msg);
 			DispatchMessage(&msg);
 		}
+		
+		MainWindow.timer.tick();
 
 		// 2. Game Update Code
-		update();
-		
-		// 3. Game Render Code
-		render();
+		update(MainWindow.timer.dt);
+
+		if (MainWindow.mainBuffer == nullptr) continue;
+
+		// Clears the screen to avoid ghosting.
+		MainWindow.mainBuffer->clear(packColorBGR(255,30,0));
+
+
+		// 3. Render to framebuffer based on new world data 
+		// //(INTERNAL THING I NEED TO DO. WITH THE WINDOW BITMAP) 
+		render(*MainWindow.mainBuffer);
+
+		// Hands over to Win32 for displaying
+		MainWindow.display();
+
 	}
 
 	// game destroy code
