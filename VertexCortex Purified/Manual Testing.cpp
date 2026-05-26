@@ -1,6 +1,7 @@
 // VertexCortex Purified Testing
 
 #include "VertexCortex.h"
+#include <string>
 
 // Code that will be run once at the start, prior to window creation
 void setup() {
@@ -13,6 +14,8 @@ void setup() {
 void update(float deltaTime) {
 
 	OutputDebugString(TEXT("\nUPDATE\n"));
+
+	OutputDebugString(std::to_wstring(1.0f / deltaTime).c_str());
 
 }
 

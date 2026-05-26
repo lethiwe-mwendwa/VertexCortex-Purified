@@ -61,7 +61,6 @@ public:
 	frameBuffer* mainBuffer;
 	Clock timer;
 
-
 	void display();
 
 protected:

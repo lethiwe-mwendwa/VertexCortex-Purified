@@ -28,6 +28,7 @@ VertexCortexApp
 
 		// 2. Game Update Code
 		update(MainWindow.timer.dt);
+		// I was gonna cap the framerate here but I'll be completely honest, I'm too lazy to and it won't affect anything much lmao.
 
 		if (MainWindow.mainBuffer == nullptr) continue;
 

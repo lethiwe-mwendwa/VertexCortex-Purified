@@ -203,7 +203,7 @@ void Clock::tick()
 
     QueryPerformanceCounter(&currentTime);
 
-    dt = (currentTime.QuadPart - lastTime.QuadPart) / counterFrequency.QuadPart;
+    dt = (float)(currentTime.QuadPart - lastTime.QuadPart) / (float)counterFrequency.QuadPart;
 
     lastTime = currentTime;
 }
