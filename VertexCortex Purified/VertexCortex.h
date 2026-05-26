@@ -16,10 +16,10 @@ void render();
 void destroy();
 
 
-void onResize(int width, int height);
+//void onResize(int width, int height);
 
-void onClose();
+//void onClose();
 
-void onKeyDown(WPARAM key);
+//void onKeyDown(WPARAM key);
 
-void onKeyUp(WPARAM key);
+//void onKeyUp(WPARAM key);
