@@ -122,6 +122,8 @@ LRESULT CALLBACK Window::WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM 
     return DefWindowProc(hwnd, uMsg, wParam, lParam);
 }
 
+
+
 frameBuffer::frameBuffer(size_t width, size_t height)
 {
     colourBuffer = new uint32_t[height * width];
@@ -157,6 +159,75 @@ void frameBuffer::setPixel(size_t x, size_t y, uint32_t colour)
         return;
     }
     colourBuffer[y * width + x] = colour;
+
+}
+
+void frameBuffer::drawLine(int x0, int y0, int x1, int y1, uint32_t colour)
+{
+    int x;
+    int y;
+
+    float m = (x1 - x0)/(y1 - y0);
+
+    // case 1: sample y
+    if (m > 1) {
+        y = y0;
+        x = x0;
+
+        while (y <= y1) {
+
+            colourBuffer[y * width + x] = colour;
+
+            y += 1;
+
+            // if uh algorithm thingy
+            // x +=1;
+
+        }
+
+
+    }
+
+
+    // case 2:
+    if (m == 1) {
+        y = y0;
+        x = x0;
+
+        while (y <= y1) {
+
+            colourBuffer[y * width + x] = colour;
+
+            y += 1;
+            x += 1;
+        }
+       
+
+        // for count
+
+    }
+
+
+    // case 3:sample x
+    if (m < 1) {
+        y = y0;
+        x = x0;
+
+        while (x <= x1) {
+
+            colourBuffer[y * width + x] = colour;
+
+            x += 1;
+
+            // if uh algorithm thingy
+            // y +=1;
+        }
+
+    }
+
+
+
+    
 }
 
 const uint32_t* frameBuffer::getColourData()
@@ -184,6 +255,9 @@ void frameBuffer::present(HDC deviceContext)
     );
 
 }
+
+
+
 
 uint32_t packColorBGR(uint8_t r, uint8_t g, uint8_t b)
 {

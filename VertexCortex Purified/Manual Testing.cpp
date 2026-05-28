@@ -15,7 +15,7 @@ void update(float deltaTime) {
 
 	OutputDebugString(TEXT("\nUPDATE\n"));
 
-	OutputDebugString(std::to_wstring(1.0f / deltaTime).c_str());
+	//OutputDebugString(std::to_wstring(1.0f / deltaTime).c_str());
 
 }
 

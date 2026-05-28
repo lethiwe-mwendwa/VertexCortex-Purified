@@ -22,6 +22,7 @@ private:
 
 class frameBuffer
 {
+
 public:
 
 	frameBuffer(size_t width, size_t height);
@@ -31,6 +32,8 @@ public:
 	void clear(uint32_t);
 
 	void setPixel(size_t, size_t, uint32_t);
+
+	void drawLine(int, int, int, int, uint32_t);
 
 	const uint32_t* getColourData();
 

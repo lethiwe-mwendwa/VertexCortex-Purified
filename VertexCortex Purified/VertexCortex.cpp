@@ -1,7 +1,6 @@
 #include "VertexCortex.h"
 #include "Window.h"
 
-
 // MAIN FUNCTION
 VertexCortexApp
 {
@@ -33,7 +32,7 @@ VertexCortexApp
 		if (MainWindow.mainBuffer == nullptr) continue;
 
 		// Clears the screen to avoid ghosting.
-		MainWindow.mainBuffer->clear(packColorBGR(255,30,0));
+		MainWindow.mainBuffer->clear(packColorBGR(255,80,200));
 
 
 		// 3. Render to framebuffer based on new world data 
