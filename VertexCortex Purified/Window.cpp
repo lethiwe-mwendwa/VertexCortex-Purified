@@ -163,7 +163,7 @@ void frameBuffer::setPixel(size_t x, size_t y, uint32_t colour)
 }
 
 // Brensenham's Line drawing algorithm
-void frameBuffer::drawLine(int x0, int y0,int x1, int y1, uint32_t colour)
+void frameBuffer::drawLine(int x0, int y0, int x1, int y1, uint32_t colour)
 {
 
     // TODO! add a x count and y count so that it doesn't run and calculate the points that are out of bounds.
@@ -188,7 +188,7 @@ void frameBuffer::drawLine(int x0, int y0,int x1, int y1, uint32_t colour)
         sx = -1;
     }
 
-    if (y0 < y1){
+    if (y0 < y1) {
         sy = 1;
     }
     else {
@@ -222,7 +222,8 @@ void frameBuffer::drawLine(int x0, int y0,int x1, int y1, uint32_t colour)
             }
 
         }
-    }else if (dx >= dy) {
+    }
+    else if (dx >= dy) {
         Pk = 2 * (dy)-dx;
 
         for (int i = 0; i <= dx; i++) {
@@ -247,7 +248,21 @@ void frameBuffer::drawLine(int x0, int y0,int x1, int y1, uint32_t colour)
             }
         }
     }
-    
+}
+
+void frameBuffer::drawRect(int x, int y, int width, int height, uint32_t colour) {
+
+    for (int i = y; i < height + y; i++) {
+        for (int j = x; j < width + x; j++) {
+
+            if (i >= 0 && i < this->height && j >= 0 && j < this->width) {
+
+                colourBuffer[i * this->width + j] = colour;
+            }
+
+        }
+    }
+
 }
 
 const uint32_t* frameBuffer::getColourData()
@@ -275,9 +290,6 @@ void frameBuffer::present(HDC deviceContext)
     );
 
 }
-
-
-
 
 uint32_t packColorBGR(uint8_t r, uint8_t g, uint8_t b)
 {
