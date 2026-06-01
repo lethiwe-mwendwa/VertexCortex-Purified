@@ -34,6 +34,7 @@ VertexCortexApp
 		// Clears the screen to avoid ghosting.
 		MainWindow.mainBuffer->clear(packColorBGR(255,80,200));
 
+		MainWindow.mainBuffer->drawLine(8206, 403, 20, 1, packColorBGR(0, 0, 0));
 
 		// 3. Render to framebuffer based on new world data 
 		// //(INTERNAL THING I NEED TO DO. WITH THE WINDOW BITMAP) 

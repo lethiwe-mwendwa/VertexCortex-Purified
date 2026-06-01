@@ -33,7 +33,7 @@ public:
 
 	void setPixel(size_t, size_t, uint32_t);
 
-	void drawLine(int, int, int, int, uint32_t);
+	void drawLine(int x0, int x1, int y0, int y1, uint32_t colour);
 
 	const uint32_t* getColourData();
 
