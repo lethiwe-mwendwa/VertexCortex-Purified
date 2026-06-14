@@ -13,24 +13,66 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\Platform">
+      <UniqueIdentifier>{b688fdc1-883d-4f32-9b2a-0c866300cc5d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Platform">
+      <UniqueIdentifier>{6e2b1d88-92c6-40f4-a0d1-cf9be9b49f3d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Platform\Win32">
+      <UniqueIdentifier>{17192992-79ed-4986-bdce-795b60d200b6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Platform\Win32">
+      <UniqueIdentifier>{f6bbb59b-49cb-487b-b9db-11a9a34baf6f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\VertexCortex">
+      <UniqueIdentifier>{e94f7022-ea4a-46e8-8790-b2fc66e27828}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\VertexCortex">
+      <UniqueIdentifier>{ad55dd46-4dc2-4f67-86f8-cbced101900b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Core">
+      <UniqueIdentifier>{d1404d7d-2889-4420-a505-c48af873a74a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Core">
+      <UniqueIdentifier>{38059c31-694f-4385-bebf-7c44ca735308}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Renderer">
+      <UniqueIdentifier>{d0dd5136-b399-4c0d-88b5-d10a9168ef1c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Renderer">
+      <UniqueIdentifier>{12aad3ac-9f9a-4782-834b-30869bde7202}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Manual Testing.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="VertexCortex.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="framebuffer.cpp">
+      <Filter>Source Files\Core</Filter>
     </ClCompile>
     <ClCompile Include="Window.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Platform\Win32</Filter>
+    </ClCompile>
+    <ClCompile Include="VertexCortex.cpp">
+      <Filter>Source Files\VertexCortex</Filter>
+    </ClCompile>
+    <ClCompile Include="raster.cpp">
+      <Filter>Source Files\Renderer</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="VertexCortex.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="framebuffer.h">
+      <Filter>Header Files\Core</Filter>
     </ClInclude>
     <ClInclude Include="Window.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Platform\Win32</Filter>
+    </ClInclude>
+    <ClInclude Include="VertexCortex.h">
+      <Filter>Header Files\VertexCortex</Filter>
+    </ClInclude>
+    <ClInclude Include="raster.h">
+      <Filter>Header Files\Renderer</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

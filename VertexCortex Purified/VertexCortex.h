@@ -14,6 +14,8 @@ void update(float deltaTime);
 void destroy();
 
 
+// Event stuff to do
+
 //void onResize(int width, int height);
 
 //void onClose();

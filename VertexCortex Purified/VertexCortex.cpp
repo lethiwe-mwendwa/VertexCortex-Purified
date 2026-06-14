@@ -32,11 +32,12 @@ VertexCortexApp
 		if (MainWindow.mainBuffer == nullptr) continue;
 
 		// Clears the screen to avoid ghosting.
-		MainWindow.mainBuffer->clear(packColorBGR(200,80,80));
+		MainWindow.mainBuffer->clear(packColorBGR(80,80,80));
 
-		MainWindow.mainBuffer->drawLine(82, 40, 200, 100, packColorBGR(0, 0, 0));
+		MainWindow.mainBuffer->drawLine(20, 40, 70, 80, packColorBGR(0, 0, 0));
 
-		MainWindow.mainBuffer->drawRect(40, 30, 60, 40, packColorBGR(255, 255, 0));
+		MainWindow.mainBuffer->drawRect(400, 300, 60, 60, packColorBGR(255, 255, 255));
+
 
 		// 3. Render to framebuffer based on new world data 
 		// //(INTERNAL THING I NEED TO DO. WITH THE WINDOW BITMAP) 
