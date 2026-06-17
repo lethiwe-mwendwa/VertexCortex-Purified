@@ -31,17 +31,23 @@
     <Filter Include="Source Files\VertexCortex">
       <UniqueIdentifier>{ad55dd46-4dc2-4f67-86f8-cbced101900b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Core">
-      <UniqueIdentifier>{d1404d7d-2889-4420-a505-c48af873a74a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Core">
-      <UniqueIdentifier>{38059c31-694f-4385-bebf-7c44ca735308}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Renderer">
       <UniqueIdentifier>{d0dd5136-b399-4c0d-88b5-d10a9168ef1c}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Renderer">
       <UniqueIdentifier>{12aad3ac-9f9a-4782-834b-30869bde7202}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Math">
+      <UniqueIdentifier>{4f3b826b-f5c4-4d6d-b79c-72fb548e0b5c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Platform\Core">
+      <UniqueIdentifier>{d1404d7d-2889-4420-a505-c48af873a74a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Platform\Core">
+      <UniqueIdentifier>{38059c31-694f-4385-bebf-7c44ca735308}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Math">
+      <UniqueIdentifier>{ac293a75-daca-45d3-b9ab-fc135d61517f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -49,7 +55,7 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="framebuffer.cpp">
-      <Filter>Source Files\Core</Filter>
+      <Filter>Source Files\Platform\Core</Filter>
     </ClCompile>
     <ClCompile Include="VertexCortex.cpp">
       <Filter>Source Files\VertexCortex</Filter>
@@ -58,19 +64,16 @@
       <Filter>Source Files\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="time.cpp">
-      <Filter>Source Files\Core</Filter>
+      <Filter>Source Files\Platform\Core</Filter>
     </ClCompile>
     <ClCompile Include="win32Platform.cpp">
       <Filter>Source Files\Platform\Win32</Filter>
     </ClCompile>
     <ClCompile Include="window.cpp">
-      <Filter>Source Files\Platform</Filter>
+      <Filter>Source Files\Platform\Core</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="framebuffer.h">
-      <Filter>Header Files\Core</Filter>
-    </ClInclude>
     <ClInclude Include="VertexCortex.h">
       <Filter>Header Files\VertexCortex</Filter>
     </ClInclude>
@@ -78,13 +81,22 @@
       <Filter>Header Files\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="time.h">
-      <Filter>Header Files\Core</Filter>
+      <Filter>Header Files\Platform\Core</Filter>
     </ClInclude>
     <ClInclude Include="win32Platform.h">
       <Filter>Header Files\Platform\Win32</Filter>
     </ClInclude>
+    <ClInclude Include="vertex.h">
+      <Filter>Header Files\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="framebuffer.h">
+      <Filter>Header Files\Platform\Core</Filter>
+    </ClInclude>
     <ClInclude Include="window.h">
-      <Filter>Header Files\Platform</Filter>
+      <Filter>Header Files\Platform\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="math.h">
+      <Filter>Header Files\Math</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

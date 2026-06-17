@@ -1,7 +1,11 @@
 #include "raster.h"
 
+void render(frameBuffer& frameBuffer) {
+    return;
+}
+
 // Brensenham's Line drawing algorithm
-void drawLine(int x0, int y0, int x1, int y1, uint32_t colour, frameBuffer* fb)
+void drawLine(int x0, int y0, int x1, int y1, uint32_t colour, frameBuffer& fb)
 {
     // TODO! add a x count and y count so that it doesn't run and calculate the points that are out of bounds.
 
@@ -38,9 +42,9 @@ void drawLine(int x0, int y0, int x1, int y1, uint32_t colour, frameBuffer* fb)
         for (int i = 0; i <= dy; i++) {
 
             // if the points are within then draw
-            if (y >= 0 && y < fb->height && x >= 0 && x < fb->width) {
+            if (y >= 0 && y < fb.height && x >= 0 && x < fb.width) {
 
-                fb->colourBuffer[y * fb->width + x] = colour;
+                fb.colourBuffer[y * fb.width + x] = colour;
 
             }
 
@@ -64,9 +68,9 @@ void drawLine(int x0, int y0, int x1, int y1, uint32_t colour, frameBuffer* fb)
 
         for (int i = 0; i <= dx; i++) {
 
-            if (y >= 0 && y < fb->height && x >= 0 && x < fb->width) {
+            if (y >= 0 && y < fb.height && x >= 0 && x < fb.width) {
 
-                fb->colourBuffer[y * fb->width + x] = colour;
+                fb.colourBuffer[y * fb.width + x] = colour;
 
             }
 
@@ -86,14 +90,14 @@ void drawLine(int x0, int y0, int x1, int y1, uint32_t colour, frameBuffer* fb)
     }
 }
 
-void drawRect(int x, int y, int width, int height, uint32_t colour, frameBuffer* fb) {
+void drawRect(int x, int y, int width, int height, uint32_t colour, frameBuffer& fb) {
 
     for (int i = y; i < height + y; i++) {
         for (int j = x; j < width + x; j++) {
 
-            if (i >= 0 && i < fb->height && j >= 0 && j < fb->width) {
+            if (i >= 0 && i < fb.height && j >= 0 && j < fb.width) {
 
-                fb->colourBuffer[i * fb->width + j] = colour;
+                fb.colourBuffer[i * fb.width + j] = colour;
             }
 
         }
@@ -101,11 +105,11 @@ void drawRect(int x, int y, int width, int height, uint32_t colour, frameBuffer*
 
 }
 
-void drawTriangle(int x, int y, int z, uint32_t colour, frameBuffer*)
+
+void drawTriangleWireframe(Vec2 A, Vec2 B, Vec2 C, uint32_t colour, frameBuffer& fb)
 {
+    drawLine(A.x, A.y, B.x, B.y, colour, fb);
+    drawLine(B.x, B.y, C.x, C.y, colour, fb);
+    drawLine(C.x, C.y, A.x, A.y, colour, fb);
 
-}
-
-void render(frameBuffer& frameBuffer) {
-    return;
 }

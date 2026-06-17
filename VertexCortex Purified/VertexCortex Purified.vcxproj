@@ -138,8 +138,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framebuffer.h" />
+    <ClInclude Include="math.h" />
     <ClInclude Include="raster.h" />
     <ClInclude Include="time.h" />
+    <ClInclude Include="vertex.h" />
     <ClInclude Include="VertexCortex.h" />
     <ClInclude Include="win32Platform.h" />
     <ClInclude Include="window.h" />
