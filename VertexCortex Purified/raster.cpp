@@ -101,6 +101,11 @@ void drawRect(int x, int y, int width, int height, uint32_t colour, frameBuffer*
 
 }
 
+void drawTriangle(int x, int y, int z, uint32_t colour, frameBuffer*)
+{
+
+}
+
 void render(frameBuffer& frameBuffer) {
     return;
-};
+}

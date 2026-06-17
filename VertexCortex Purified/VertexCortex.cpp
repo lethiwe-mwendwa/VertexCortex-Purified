@@ -1,6 +1,7 @@
 #include "VertexCortex.h"
 #include "window.h"
 #include "raster.h"
+#include <Windows.h>
 
 // MAIN FUNCTION
 VertexCortexApp
