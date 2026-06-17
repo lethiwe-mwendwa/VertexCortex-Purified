@@ -1,8 +1,8 @@
-#include "Window.h"
+#include "window.h"
 
 Window::Window(const wchar_t* ClassName, const wchar_t* WindowText, HINSTANCE hInstance, int nCmdShow)
 {
-
+    // shaboingboing
     mainBuffer = nullptr;
     timer = Clock();
 

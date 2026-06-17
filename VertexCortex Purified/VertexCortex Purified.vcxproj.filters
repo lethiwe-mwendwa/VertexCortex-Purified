@@ -51,28 +51,40 @@
     <ClCompile Include="framebuffer.cpp">
       <Filter>Source Files\Core</Filter>
     </ClCompile>
-    <ClCompile Include="Window.cpp">
-      <Filter>Source Files\Platform\Win32</Filter>
-    </ClCompile>
     <ClCompile Include="VertexCortex.cpp">
       <Filter>Source Files\VertexCortex</Filter>
     </ClCompile>
     <ClCompile Include="raster.cpp">
       <Filter>Source Files\Renderer</Filter>
     </ClCompile>
+    <ClCompile Include="time.cpp">
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="win32Platform.cpp">
+      <Filter>Source Files\Platform\Win32</Filter>
+    </ClCompile>
+    <ClCompile Include="window.cpp">
+      <Filter>Source Files\Platform</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framebuffer.h">
       <Filter>Header Files\Core</Filter>
-    </ClInclude>
-    <ClInclude Include="Window.h">
-      <Filter>Header Files\Platform\Win32</Filter>
     </ClInclude>
     <ClInclude Include="VertexCortex.h">
       <Filter>Header Files\VertexCortex</Filter>
     </ClInclude>
     <ClInclude Include="raster.h">
       <Filter>Header Files\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="time.h">
+      <Filter>Header Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="win32Platform.h">
+      <Filter>Header Files\Platform\Win32</Filter>
+    </ClInclude>
+    <ClInclude Include="window.h">
+      <Filter>Header Files\Platform</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

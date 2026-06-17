@@ -1,5 +1,6 @@
 #include "VertexCortex.h"
-#include "Window.h"
+#include "window.h"
+#include "raster.h"
 
 // MAIN FUNCTION
 VertexCortexApp
@@ -33,11 +34,10 @@ VertexCortexApp
 
 		// Clears the screen to avoid ghosting.
 		MainWindow.mainBuffer->clear(packColorBGR(80,80,80));
-
-		MainWindow.mainBuffer->drawLine(20, 40, 70, 80, packColorBGR(0, 0, 0));
-
-		MainWindow.mainBuffer->drawRect(400, 300, 60, 60, packColorBGR(255, 255, 255));
-
+			
+		drawLine(20, 40, 70, 80, packColorBGR(0, 0, 0), MainWindow.mainBuffer);
+			
+		drawRect(400, 300, 60, 60, packColorBGR(255, 255, 255), MainWindow.mainBuffer);
 
 		// 3. Render to framebuffer based on new world data 
 		// //(INTERNAL THING I NEED TO DO. WITH THE WINDOW BITMAP) 

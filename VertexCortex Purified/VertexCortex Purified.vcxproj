@@ -131,14 +131,18 @@
     <ClCompile Include="framebuffer.cpp" />
     <ClCompile Include="Manual Testing.cpp" />
     <ClCompile Include="raster.cpp" />
+    <ClCompile Include="time.cpp" />
     <ClCompile Include="VertexCortex.cpp" />
-    <ClCompile Include="Window.cpp" />
+    <ClCompile Include="win32Platform.cpp" />
+    <ClCompile Include="window.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framebuffer.h" />
     <ClInclude Include="raster.h" />
+    <ClInclude Include="time.h" />
     <ClInclude Include="VertexCortex.h" />
-    <ClInclude Include="Window.h" />
+    <ClInclude Include="win32Platform.h" />
+    <ClInclude Include="window.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
