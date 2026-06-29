@@ -72,6 +72,9 @@
     <ClCompile Include="window.cpp">
       <Filter>Source Files\Platform\Core</Filter>
     </ClCompile>
+    <ClCompile Include="math.cpp">
+      <Filter>Source Files\Math</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="VertexCortex.h">

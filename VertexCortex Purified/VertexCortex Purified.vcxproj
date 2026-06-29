@@ -130,6 +130,7 @@
   <ItemGroup>
     <ClCompile Include="framebuffer.cpp" />
     <ClCompile Include="Manual Testing.cpp" />
+    <ClCompile Include="math.cpp" />
     <ClCompile Include="raster.cpp" />
     <ClCompile Include="time.cpp" />
     <ClCompile Include="VertexCortex.cpp" />
