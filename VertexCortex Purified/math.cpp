@@ -1,7 +1,7 @@
 #include "math.h"
 
 // 2d cross product (used in triangle rasterisation)
-int crossProduct(Vec2 AB, Vec2 AP) {
+float crossProduct(Vec2 AB, Vec2 AP) {
 
 	return AB.x * AP.y - AB.y * AP.x;
 

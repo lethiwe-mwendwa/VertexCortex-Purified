@@ -66,8 +66,32 @@ void frameBuffer::present(HDC deviceContext)
 
 }
 
-uint32_t packColorBGR(uint8_t r, uint8_t g, uint8_t b)
+// Red, green, blue to bgr binary storage
+uint32_t packColourBGR(uint8_t r, uint8_t g, uint8_t b)
 {
     return (b) | (g << 8) | (r << 16);
 }
 
+// Takes BGR colour value and returns it's Red value
+uint32_t getColourRed(uint8_t colour)
+{
+    // REMEMBER!! unint32_t colours are packed as BGR
+
+    return (colour >> 16) & 255;
+}
+
+// Takes BGR colour value and returns it's Red value
+uint32_t getColourGreen(uint8_t colour)
+{
+    // REMEMBER!! unint32_t colours are packed as BGR
+
+    return (colour >> 8 ) & 255;
+}
+
+// Takes BGR colour value and returns it's Blue value
+uint32_t getColourBlue(uint8_t colour)
+{
+    // REMEMBER!! unint32_t colours are packed as BGR
+
+    return colour & 255;
+}

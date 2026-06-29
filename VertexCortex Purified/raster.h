@@ -1,7 +1,16 @@
 #pragma once
 #include "framebuffer.h"
 #include <iostream>
-#include "vertex.h"
+
+struct Vertex2;
+struct Vec2; // Forward declare so that I avoid circular include dependency. vertex.h is included in raster.cpp
+
+struct Colour {
+	int r;
+	int g;
+	int b;
+
+};
 
 // This might benefit being in the engine folder
 void render(frameBuffer&);
@@ -20,4 +29,4 @@ void drawTriangle(Vertex2, Vertex2, Vertex2, frameBuffer&);
 
 // To figure out if a point (x,y) is inside a given triangle.
 // Inside corresponds to positive edge values for our vertex order and screen coordinate system.
-int edgeFunction(Vec2 A, Vec2 B, Vec2 P);
+float edgeFunction(Vec2 A, Vec2 B, Vec2 P);

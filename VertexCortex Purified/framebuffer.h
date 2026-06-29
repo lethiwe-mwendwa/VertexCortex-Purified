@@ -33,5 +33,8 @@ private:
 
 };
 
-uint32_t packColorBGR(uint8_t r, uint8_t g, uint8_t b);
+uint32_t packColourBGR(uint8_t r, uint8_t g, uint8_t b);
 
+uint32_t getColourBlue(uint8_t);
+uint32_t getColourGreen(uint8_t);
+uint32_t getColourRed(uint8_t);

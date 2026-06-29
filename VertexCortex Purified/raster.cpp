@@ -1,5 +1,12 @@
 #include "raster.h"
+#include "vertex.h"
 #include "math.h"
+
+// for debugging
+#include <iostream>
+#include <Windows.h>
+#include <string>
+
 
 void render(frameBuffer& frameBuffer) {
     return;
@@ -138,17 +145,32 @@ void drawTriangle(Vertex2 A, Vertex2 B, Vertex2 C, frameBuffer& fb) {
     if (C.pos.y > maxY) { maxY = C.pos.y; }
 
 
+    // This stuff is for the colour weighing!!
+    //Double the signed area of the triangle ABC
+    float ABC = edgeFunction(A.pos, B.pos, C.pos);
 
     //OUTER LOOP!! LOOP THROUGH PIXEL CANDIDATES
     for (int i = minY; i <= maxY; i++) {
         for (int j = minX; j <= maxX; j++) {
 
             if (edgeFunction(A.pos, B.pos, Vec2(j, i)) >= 0 && edgeFunction(B.pos, C.pos, Vec2(j, i)) >= 0 &&edgeFunction(C.pos, A.pos, Vec2(j, i)) >= 0){
-                
-                //now I need to figure out the specific colour.
 
-                fb.colourBuffer[i * fb.width + j] = A.colour;
+                Vec2 P = Vec2(j, i);
 
+                float BCP = edgeFunction(B.pos, C.pos, P);
+                float CAP = edgeFunction(C.pos, A.pos, P);
+                float ABP = edgeFunction(A.pos, B.pos, P);
+
+                // Weights of the point P towards each of the vertices (Barycentric coordinates)
+                float weightA = BCP / ABC;
+                float weightB = CAP / ABC;
+                float weightC = ABP / ABC;
+
+                float r = A.colour.r * weightA + B.colour.r * weightB + C.colour.r * weightC;
+                float g = A.colour.g * weightA + B.colour.g * weightB + C.colour.g * weightC;
+                float b = A.colour.b * weightA + B.colour.b * weightB + C.colour.b * weightC;
+
+                fb.colourBuffer[i * fb.width + j] = packColourBGR(r,g,b);
 
             }
 
@@ -158,21 +180,8 @@ void drawTriangle(Vertex2 A, Vertex2 B, Vertex2 C, frameBuffer& fb) {
 }
 
 
-int edgeFunction(Vec2 A, Vec2 B, Vec2 P) {
+float edgeFunction(Vec2 A, Vec2 B, Vec2 P) {
 
     return crossProduct(Vec2(B.x - A.x, B.y - A.y), Vec2(P.x - A.x, P.y - A.y));
 
 }
-
-
-//bool edgeFunction(Vertex2 A, Vertex2 B, Vertex2 C, int x, int y){
-//    if (// compare for AB AP
-//        crossProduct(Vec2(B.pos.x - A.pos.x, B.pos.y - A.pos.y), Vec2(x - A.pos.x, y - A.pos.y)) > 0 || 
-//        // compare for BC BP
-//        crossProduct(Vec2(C.pos.x - B.pos.x, C.pos.y - B.pos.y), Vec2(x - B.pos.x, y - B.pos.y)) > 0 ||
-//        crossProduct(Vec2(A.pos.x - C.pos.x, A.pos.y - C.pos.y), Vec2(x - C.pos.x, y - C.pos.y)) > 0
-//        ){
-//        return true;
-//    }
-//    return false;
-//}

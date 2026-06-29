@@ -14,7 +14,7 @@ struct Vec3{
 
 };
 
-int crossProduct(Vec2, Vec2);
+float crossProduct(Vec2, Vec2);
 
 Vec3 crossProduct(Vec3, Vec3);
 

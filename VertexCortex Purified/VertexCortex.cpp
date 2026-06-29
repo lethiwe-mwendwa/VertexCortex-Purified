@@ -2,6 +2,7 @@
 #include "window.h"
 #include "raster.h"
 #include <Windows.h>
+#include "vertex.h"
 
 // MAIN FUNCTION
 VertexCortexApp
@@ -34,7 +35,7 @@ VertexCortexApp
 		if (MainWindow.mainBuffer == nullptr) continue;
 
 		// Clears the screen to avoid ghosting.
-		MainWindow.mainBuffer->clear(packColorBGR(0,0,0));
+		MainWindow.mainBuffer->clear(packColourBGR(0,0,0));
 			
 		//drawLine(20, 40, 70, 80, packColorBGR(0, 0, 0), *MainWindow.mainBuffer);
 			
@@ -47,11 +48,11 @@ VertexCortexApp
 		Vec2 B = { 600, 100 };
 		Vec2 C = { 800, 500 };
 
-		drawTriangleWireframe(A, B, C, packColorBGR(255, 255, 255), *MainWindow.mainBuffer);
+		//drawTriangleWireframe(A, B, C, packColourBGR(255, 255, 255), *MainWindow.mainBuffer);
 
-		Vertex2 Av = {Vec2(400, 500), packColorBGR(255, 255, 255) };
-		Vertex2 Bv = {Vec2(600, 100), packColorBGR(255, 255, 255) };
-		Vertex2 Cv = {Vec2(800, 500), packColorBGR(255, 255, 255) };
+		Vertex2 Av = {Vec2(200, 500), Colour(255, 0, 0) };
+		Vertex2 Bv = {Vec2(400, 100), Colour(0, 255, 0) };
+		Vertex2 Cv = {Vec2(600, 500), Colour(0, 0, 255) };
 
 		drawTriangle(Av, Bv, Cv, *MainWindow.mainBuffer);
 
