@@ -13,9 +13,11 @@ public:
 	bool isRunning = false;
 	HWND handler;
 	frameBuffer* mainBuffer;
+
 	Clock timer;
 
 	void display();
+
 
 protected:
 	const wchar_t* WindowText;

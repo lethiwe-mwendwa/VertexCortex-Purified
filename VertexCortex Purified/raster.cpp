@@ -153,32 +153,35 @@ void drawTriangle(Vertex2 A, Vertex2 B, Vertex2 C, frameBuffer& fb) {
     for (int i = minY; i <= maxY; i++) {
         for (int j = minX; j <= maxX; j++) {
 
-            if (edgeFunction(A.pos, B.pos, Vec2(j, i)) >= 0 && edgeFunction(B.pos, C.pos, Vec2(j, i)) >= 0 &&edgeFunction(C.pos, A.pos, Vec2(j, i)) >= 0){
+            // making sure we only do the ones visible
+            if (i >= 0 && i < fb.height && j >= 0 && j < fb.width) {
 
-                Vec2 P = Vec2(j, i);
+                if (edgeFunction(A.pos, B.pos, Vec2(j, i)) >= 0 && edgeFunction(B.pos, C.pos, Vec2(j, i)) >= 0 && edgeFunction(C.pos, A.pos, Vec2(j, i)) >= 0) {
 
-                float BCP = edgeFunction(B.pos, C.pos, P);
-                float CAP = edgeFunction(C.pos, A.pos, P);
-                float ABP = edgeFunction(A.pos, B.pos, P);
+                    Vec2 P = Vec2(j, i);
 
-                // Weights of the point P towards each of the vertices (Barycentric coordinates)
-                float weightA = BCP / ABC;
-                float weightB = CAP / ABC;
-                float weightC = ABP / ABC;
+                    float BCP = edgeFunction(B.pos, C.pos, P);
+                    float CAP = edgeFunction(C.pos, A.pos, P);
+                    float ABP = edgeFunction(A.pos, B.pos, P);
 
-                float r = A.colour.r * weightA + B.colour.r * weightB + C.colour.r * weightC;
-                float g = A.colour.g * weightA + B.colour.g * weightB + C.colour.g * weightC;
-                float b = A.colour.b * weightA + B.colour.b * weightB + C.colour.b * weightC;
+                    // Weights of the point P towards each of the vertices (Barycentric coordinates)
+                    float weightA = BCP / ABC;
+                    float weightB = CAP / ABC;
+                    float weightC = ABP / ABC;
 
-                fb.colourBuffer[i * fb.width + j] = packColourBGR(r,g,b);
+                    float r = A.colour.r * weightA + B.colour.r * weightB + C.colour.r * weightC;
+                    float g = A.colour.g * weightA + B.colour.g * weightB + C.colour.g * weightC;
+                    float b = A.colour.b * weightA + B.colour.b * weightB + C.colour.b * weightC;
 
+                    fb.colourBuffer[i * fb.width + j] = packColourBGR(r, g, b);
+
+                }
             }
 
         }
     }
 
 }
-
 
 float edgeFunction(Vec2 A, Vec2 B, Vec2 P) {
 

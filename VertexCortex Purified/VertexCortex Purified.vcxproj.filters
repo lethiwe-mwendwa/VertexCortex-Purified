@@ -31,75 +31,101 @@
     <Filter Include="Source Files\VertexCortex">
       <UniqueIdentifier>{ad55dd46-4dc2-4f67-86f8-cbced101900b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Renderer">
-      <UniqueIdentifier>{d0dd5136-b399-4c0d-88b5-d10a9168ef1c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Renderer">
-      <UniqueIdentifier>{12aad3ac-9f9a-4782-834b-30869bde7202}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Math">
       <UniqueIdentifier>{4f3b826b-f5c4-4d6d-b79c-72fb548e0b5c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Platform\Core">
-      <UniqueIdentifier>{d1404d7d-2889-4420-a505-c48af873a74a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Platform\Core">
-      <UniqueIdentifier>{38059c31-694f-4385-bebf-7c44ca735308}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\Math">
       <UniqueIdentifier>{ac293a75-daca-45d3-b9ab-fc135d61517f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Renderer">
+      <UniqueIdentifier>{8538c46d-a1fd-4bae-8517-629eebcf21e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Renderer\CPU Renderer">
+      <UniqueIdentifier>{d0dd5136-b399-4c0d-88b5-d10a9168ef1c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Renderer\GPU Renderer">
+      <UniqueIdentifier>{e3d3c4ff-dc1f-450f-801a-19949d10eb07}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Renderer">
+      <UniqueIdentifier>{11a320ae-69e0-4a4d-914d-125cc35a0950}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Renderer\GPU Renderer">
+      <UniqueIdentifier>{940a5af7-9206-4204-952c-08a74d18e762}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Renderer\CPU Renderer">
+      <UniqueIdentifier>{12aad3ac-9f9a-4782-834b-30869bde7202}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Math\GPU Math">
+      <UniqueIdentifier>{d999dc8b-ec56-4213-8f38-20af1e240f3b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Math\CPU Math">
+      <UniqueIdentifier>{1ff6811b-3694-4b04-a882-69316f27b91e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Math\CPU Math">
+      <UniqueIdentifier>{9f24b0d6-e0c6-46b3-95eb-7ecd060e8758}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Math\GPU Math">
+      <UniqueIdentifier>{592924f8-8e54-41bb-8f94-156fefd27842}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Manual Testing.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="framebuffer.cpp">
-      <Filter>Source Files\Platform\Core</Filter>
-    </ClCompile>
-    <ClCompile Include="VertexCortex.cpp">
+    <ClCompile Include="VertexCortex.cu">
       <Filter>Source Files\VertexCortex</Filter>
     </ClCompile>
     <ClCompile Include="raster.cpp">
-      <Filter>Source Files\Renderer</Filter>
+      <Filter>Source Files\Renderer\CPU Renderer</Filter>
     </ClCompile>
-    <ClCompile Include="time.cpp">
-      <Filter>Source Files\Platform\Core</Filter>
-    </ClCompile>
-    <ClCompile Include="win32Platform.cpp">
+    <ClCompile Include="window.cu">
       <Filter>Source Files\Platform\Win32</Filter>
     </ClCompile>
-    <ClCompile Include="window.cpp">
-      <Filter>Source Files\Platform\Core</Filter>
+    <ClCompile Include="time.cpp">
+      <Filter>Source Files\Platform\Win32</Filter>
+    </ClCompile>
+    <ClCompile Include="framebuffer.cu">
+      <Filter>Source Files\Platform\Win32</Filter>
     </ClCompile>
     <ClCompile Include="math.cpp">
-      <Filter>Source Files\Math</Filter>
+      <Filter>Source Files\Math\CPU Math</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="VertexCortex.h">
+    <ClInclude Include="VertexCortex.cuh">
       <Filter>Header Files\VertexCortex</Filter>
     </ClInclude>
     <ClInclude Include="raster.h">
-      <Filter>Header Files\Renderer</Filter>
-    </ClInclude>
-    <ClInclude Include="time.h">
-      <Filter>Header Files\Platform\Core</Filter>
-    </ClInclude>
-    <ClInclude Include="win32Platform.h">
-      <Filter>Header Files\Platform\Win32</Filter>
-    </ClInclude>
-    <ClInclude Include="vertex.h">
-      <Filter>Header Files\Math</Filter>
-    </ClInclude>
-    <ClInclude Include="framebuffer.h">
-      <Filter>Header Files\Platform\Core</Filter>
+      <Filter>Header Files\Renderer\CPU Renderer</Filter>
     </ClInclude>
     <ClInclude Include="window.h">
-      <Filter>Header Files\Platform\Core</Filter>
+      <Filter>Header Files\Platform\Win32</Filter>
+    </ClInclude>
+    <ClInclude Include="time.h">
+      <Filter>Header Files\Platform\Win32</Filter>
+    </ClInclude>
+    <ClInclude Include="framebuffer.h">
+      <Filter>Header Files\Platform\Win32</Filter>
+    </ClInclude>
+    <ClInclude Include="raster.cuh">
+      <Filter>Header Files\Renderer\GPU Renderer</Filter>
     </ClInclude>
     <ClInclude Include="math.h">
-      <Filter>Header Files\Math</Filter>
+      <Filter>Header Files\Math\CPU Math</Filter>
     </ClInclude>
+    <ClInclude Include="vertex.h">
+      <Filter>Header Files\Math\CPU Math</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CudaCompile Include="raster.cu">
+      <Filter>Source Files\Renderer\GPU Renderer</Filter>
+    </CudaCompile>
+    <CudaCompile Include="math.cuh">
+      <Filter>Header Files\Math\GPU Math</Filter>
+    </CudaCompile>
+    <CudaCompile Include="math.cu">
+      <Filter>Source Files\Math\GPU Math</Filter>
+    </CudaCompile>
   </ItemGroup>
 </Project>

@@ -1,12 +1,27 @@
 #include "framebuffer.h"
 
+// New stuff for the new GPUbuffer
+#include "cuda_runtime.h"
+#include "device_launch_parameters.h"
+
 
 frameBuffer::frameBuffer(size_t width, size_t height)
 {
     colourBuffer = new uint32_t[height * width];
 
+    //CUDA STUFF
+    cudaError_t cudaStatus;
+
+    cudaStatus = cudaMalloc((void**)&gpuColourBuffer, height * width * sizeof(uint32_t));
+    if (cudaStatus != cudaSuccess) {
+        fprintf(stderr, "cudaMalloc failed!");
+    }
+
+    // used in update, so must be applied here.
     this->width = width;
     this->height = height;
+
+    updateDeviceColourbuffer();
 
     // For Win32
     bitmapInfo = {};
@@ -21,6 +36,7 @@ frameBuffer::frameBuffer(size_t width, size_t height)
 frameBuffer::~frameBuffer()
 {
     delete[] colourBuffer;
+    cudaFree(gpuColourBuffer);
 }
 
 void frameBuffer::clear(uint32_t colour)
@@ -64,6 +80,24 @@ void frameBuffer::present(HDC deviceContext)
         SRCCOPY               // raster operation
     );
 
+}
+
+// PROBLEM what you're copying... has a pointer. THATS A BIG NONO DUDE
+void frameBuffer::updateDeviceColourbuffer() {
+    cudaError_t cudaStatus = cudaMemcpy(gpuColourBuffer, colourBuffer, height * width * sizeof(uint32_t), cudaMemcpyHostToDevice);
+    if (cudaStatus != cudaSuccess) {
+        fprintf(stderr, "cudaMemcpy failed!");
+    }
+    return;
+
+}
+
+void frameBuffer::updateHostColourbuffer() {
+    cudaError_t cudaStatus = cudaMemcpy(colourBuffer, gpuColourBuffer, height * width * sizeof(uint32_t), cudaMemcpyDeviceToHost);
+    if (cudaStatus != cudaSuccess) {
+        fprintf(stderr, "cudaMemcpy failed!");
+    }
+    return;
 }
 
 // Red, green, blue to bgr binary storage

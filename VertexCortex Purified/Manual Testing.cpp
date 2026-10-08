@@ -1,19 +1,19 @@
 // VertexCortex Purified Testing
 
-#include "VertexCortex.h"
+#include "VertexCortex.cuh"
 #include <string>
 
 // Code that will be run once at the start, prior to window creation
 void setup() {
 	
-	OutputDebugString(TEXT("\nHello console world\n"));
+	//OutputDebugString(TEXT("\nHello console world\n"));
 
 }
 
 // Code run every frame
 void update(float deltaTime) {
 
-	OutputDebugString(TEXT("\nUPDATE\n"));
+	//OutputDebugString(TEXT("\nUPDATE\n"));
 
 	//OutputDebugString(std::to_wstring(1.0f / deltaTime).c_str());
 
@@ -22,6 +22,6 @@ void update(float deltaTime) {
 // Code run at the termination stage of the application
 void destroy() {
 
-	OutputDebugString(TEXT("\nDESTROY\n"));
+	//OutputDebugString(TEXT("\nDESTROY\n"));
 
 }
